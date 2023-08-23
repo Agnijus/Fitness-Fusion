@@ -27,16 +27,69 @@
 body {
   font-family: "Lato", sans-serif;
 }
+
+.about-us-title,
+.products-title,
+.services-title {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+.product-title,
+.service-title {
+  letter-spacing: var(--letter-spacing);
+  font-weight: 700;
+  font-size: 1.2rem;
+  text-transform: capitalize;
+  margin-bottom: 10px;
+}
+.service-title {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+h3 {
+  color: var(--primary);
+  font-size: 2.5rem;
+}
+.services > h3 {
+  margin-top: 40px;
+}
+.services > h3,
+.services-title {
+  text-align: center;
+}
+
+.about-us-text > h3,
+.services > h3 {
+  font-size: 2rem;
+}
+
+@keyframes nav-animation {
+  0% {
+    transform: scale(3);
+  }
+  50% {
+    transform: scale(5);
+  }
+  100% {
+    transform: scale(3);
+  }
+}
+/*
+=============== 
+Hero
+===============
+*/
 .hero {
   position: relative;
   height: 100vh;
   background: linear-gradient(var(--hero-overlay), var(--hero-overlay)),
     url("./images/pexels-ivan-samkov-4164759.jpg") center/cover no-repeat fixed;
   background-position: 0 20%;
+  background-attachment: fixed;
 }
 
 nav .nav-center {
-  /* border: 1px solid white; */
   padding-top: 4rem;
   width: 87vw;
   position: sticky;
@@ -59,10 +112,7 @@ nav .nav-center {
   text-align: center;
   max-width: var(--max-width);
 }
-h3 {
-  color: var(--primary);
-  font-size: 2.5rem;
-}
+
 .hero-center h1 {
   color: var(--white);
   font-size: 5rem;
@@ -87,30 +137,6 @@ h3 {
   color: var(--primary-dark);
   transition: var(--transition);
 }
-.main {
-  height: 100vh;
-}
-@keyframes nav-animation {
-  0% {
-    transform: scale(3);
-  }
-  50% {
-    transform: scale(5);
-  }
-  100% {
-    transform: scale(3);
-  }
-}
-
-.nav-menu:enabled {
-  visibility: visible;
-  position: fixed;
-  float: left;
-  width: 25vw;
-  height: 100%;
-  border: 1px solid grey;
-  z-index: 1;
-}
 .gradient-horizontal {
   width: 100%;
   height: 0.5rem;
@@ -121,15 +147,28 @@ h3 {
     var(--primary-dark)
   );
 }
-.categories {
-}
+/*
+=============== 
+Categories
+===============
+*/
 .card-category {
   position: relative;
-  width: 49%;
+  vertical-align: top;
+  width: 100%;
   height: 250px;
   background-color: var(--grey-light);
-  float: left;
-  margin: 1px;
+}
+@media screen and (min-width: 800px) {
+  .card-category {
+    float: left;
+    width: 50%;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .card-category {
+    width: 25%;
+  }
 }
 .card-category:hover {
   box-shadow: 0 2px var(--primary);
@@ -137,16 +176,24 @@ h3 {
   transition: var(--transition);
 }
 .category-center {
+  width: 70%;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
-  /* border: 1px solid white; */
 }
-.category-center i {
+.category-icon {
   font-size: 2rem;
   margin-bottom: 20px;
+}
+.category-center i:hover {
+  margin-bottom: 1.25rem;
+  transition: var(--transition);
+}
+.card-category:hover .category-icon {
+  transform: translateY(-10px);
+  transition: var(--transition);
 }
 .category-center i {
   font-size: 1.5rem;
@@ -162,11 +209,15 @@ h3 {
 .card-category p {
   letter-spacing: var(--letter-spacing);
 }
+/*
+=============== 
+About Us
+===============
+*/
 .about-us {
   clear: both;
   position: relative;
   height: 700px;
-  /* background-color: grey; */
 }
 .about-us-center {
   width: 90vw;
@@ -174,15 +225,33 @@ h3 {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  float: left;
 }
 .about-us-image-container {
-  float: left;
   position: relative;
   border: 10px solid var(--primary);
   height: 300px;
   width: 500px;
   overflow: hidden;
   margin-right: 40px;
+}
+@media screen and (min-width: 800px) {
+  .about-us-image-container,
+  .about-us-text {
+    float: left;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .about-us-image-container,
+  .about-us-text {
+    float: left;
+  }
+}
+
+@media screen and (min-width: 1157px) {
+  .about-us {
+    height: 500px;
+  }
 }
 .about-us-image {
   position: absolute;
@@ -215,21 +284,11 @@ h3 {
 .about-us-image-container:hover .about-us-image {
   transform: scale(1.2);
 }
-
 .about-us-text {
   display: inline-block;
   vertical-align: top;
   width: 500px;
   margin-top: 20px;
-}
-
-.about-us-text > h3,
-.services > h3 {
-  font-size: 2rem;
-}
-.about-us-title {
-  font-size: 3rem;
-  margin-bottom: 20px;
 }
 .about-us p {
   letter-spacing: 1px;
@@ -256,10 +315,15 @@ h3 {
   color: var(--primary-dark);
   transition: var(--transition);
 }
+/*
+=============== 
+Products
+===============
+*/
 .products {
   position: relative;
   background-color: var(--grey-light);
-  height: 1000px;
+  height: 1600px;
 }
 .products-center {
   width: 90vw;
@@ -267,77 +331,96 @@ h3 {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  max-width: 1300px;
 }
-.products-text {
-  /* float: left; */
-  display: inline-block;
-  vertical-align: top;
-  width: 400px;
-  margin-top: 20px;
-  margin-right: 20px;
-}
-.product-image {
-  /* visibility: collapse; */
+
+.product-image-container {
   height: 300px;
-  width: 300px;
-  object-fit: cover;
+  border-radius: 15px;
+  margin: 40px 0 20px 0;
 }
-.products-title,
-.services-title {
-  font-size: 3rem;
-  margin-bottom: 20px;
-}
+
 .products-center p {
   letter-spacing: 1px;
   color: var(--grey);
   margin-bottom: 10px;
 }
-
+.products-text,
 .product-card {
-  display: inline-block;
   vertical-align: top;
-  width: 400px;
   margin-top: 20px;
-  /* border: 1px solid black; */
-  margin-right: 20px;
+}
+@media screen and (min-width: 800px) {
+  .product-card {
+    float: left;
+    width: 50%;
+    padding-left: 2rem;
+  }
+  .products-text {
+    float: left;
+    width: 70%;
+  }
+}
+@media screen and (min-width: 1000px) {
+  .product-card {
+    width: 33.3%;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .products-text {
+    float: left;
+    width: 30%;
+  }
+  .products-container {
+    float: left;
+    width: 70%;
+  }
 }
 .product-image {
-  /* visibility: collapse; */
   height: 250px;
   width: 300px;
-  /* object-fit: cover; */
   margin-bottom: 20px;
   border-radius: var(--border-radius);
 }
-.product-title,
-.service-title {
-  letter-spacing: var(--letter-spacing);
-  font-weight: 700;
-  font-size: 1.2rem;
-  text-transform: capitalize;
-  margin-bottom: 10px;
-}
+
 .product-price {
   color: var(--primary);
   font-weight: 700;
   font-size: 1.2rem;
 }
-.services > h3 {
-  margin-top: 40px;
-}
-.services > h3,
-.services-title {
-  text-align: center;
+/*
+=============== 
+Services
+===============
+*/
+.services {
+  width: 90vw;
+  margin: 0 auto;
+  height: 2050px;
+  clear: both;
 }
 .service-card {
   position: relative;
-  float: left;
-  width: 350px;
-  height: 600px;
-  margin: 1rem;
+  /* float: left; */
+  width: 100%;
+  margin: 0.75rem;
   border-radius: 20px;
   margin-bottom: 50px;
+  height: 600px;
 }
+@media screen and (min-width: 800px) {
+  .service-card {
+    float: left;
+    width: 45%;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .service-card {
+    width: 30%;
+    /* margin-right: 2rem; */
+  }
+}
+
 .service-logo {
   width: 60px;
   height: 60px;
@@ -390,11 +473,6 @@ h3 {
   transform: translate(-50%, -50%);
 }
 
-.service-title {
-  text-align: center;
-  margin-top: 20px;
-  margin-bottom: 30px;
-}
 .service-card p {
   text-align: center;
   color: var(--grey);
@@ -415,8 +493,12 @@ h3 {
   font-weight: 600;
   margin: 0 auto;
 }
+/*
+=============== 
+Footer
+===============
+*/
 .footer {
-  clear: both;
   position: relative;
   height: 20vh;
   background-color: var(--black);
