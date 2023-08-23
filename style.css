@@ -1,5 +1,455 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,400;1,700&display=swap");
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+:root {
+  --primary: #b01030;
+  --primary-dark: #710a1e;
+  --primary-light: hsl(0, 81%, 59%);
+  --grey-light: #f1f5f9;
+  --grey: #64748b;
+  --hero-overlay: rgba(0, 0, 0, 0.7);
+  --fluid-width: 90vw;
+  --max-width: 1170px;
+  --black: #222;
+  --white: #fff;
+  --letter-spacing: 2px;
+  --border-radius: 0.15rem;
+  --shadow-light: 0 5px 15px rgba(0, 0, 0, 0.1);
+  --shadow-dark: 05px 15px rgba(0, 0, 0, 0.2);
+  --transition: 0.3s ease-in-out all;
+  --transition-about-us: 1s all;
+  --border-radius: 10px;
+}
+body {
+  font-family: "Lato", sans-serif;
+}
+.hero {
+  position: relative;
+  height: 100vh;
+  background: linear-gradient(var(--hero-overlay), var(--hero-overlay)),
+    url("./images/pexels-ivan-samkov-4164759.jpg") center/cover no-repeat fixed;
+  background-position: 0 20%;
+}
+
+nav .nav-center {
+  /* border: 1px solid white; */
+  padding-top: 4rem;
+  width: 87vw;
+  position: sticky;
+  margin: 0 auto;
+  top: 0;
+  z-index: 1;
+}
+
+.fa-bars {
+  color: var(--primary);
+  animation: nav-animation 3s infinite;
+}
+.hero-center {
+  width: 60vw;
+  height: 30vh;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  max-width: var(--max-width);
+}
+h3 {
+  color: var(--primary);
+  font-size: 2.5rem;
+}
+.hero-center h1 {
+  color: var(--white);
+  font-size: 5rem;
+  text-transform: uppercase;
+}
+.hero-btn {
+  margin-top: 3rem;
+  color: var(--white);
+  background-color: var(--primary);
+  border: 4px solid var(--primary);
+  font-size: 1.5rem;
+  padding: 1rem 1.5rem;
+  text-transform: uppercase;
+  outline: 4px solid var(--primary);
+  outline-offset: 5px;
+  letter-spacing: var(--letter-spacing);
+  font-weight: 500;
+}
+.hero-btn:hover {
+  background-color: var(--primary-light);
+  border-color: var(--primary-light);
+  color: var(--primary-dark);
+  transition: var(--transition);
+}
+.main {
+  height: 100vh;
+}
+@keyframes nav-animation {
+  0% {
+    transform: scale(3);
+  }
+  50% {
+    transform: scale(5);
+  }
+  100% {
+    transform: scale(3);
+  }
+}
+
+.nav-menu:enabled {
+  visibility: visible;
+  position: fixed;
+  float: left;
+  width: 25vw;
+  height: 100%;
+  border: 1px solid grey;
+  z-index: 1;
+}
+.gradient-horizontal {
+  width: 100%;
+  height: 0.5rem;
+  background: linear-gradient(
+    to left,
+    var(--primary-dark),
+    var(--primary-light),
+    var(--primary-dark)
+  );
+}
+.categories {
+}
+.card-category {
+  position: relative;
+  width: 49%;
+  height: 250px;
+  background-color: var(--grey-light);
+  float: left;
+  margin: 1px;
+}
+.card-category:hover {
+  box-shadow: 0 2px var(--primary);
+  background-color: var(--white);
+  transition: var(--transition);
+}
+.category-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  /* border: 1px solid white; */
+}
+.category-center i {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+.category-center i {
+  font-size: 1.5rem;
+  color: black;
+}
+.category-heading {
+  letter-spacing: var(--letter-spacing);
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-transform: capitalize;
+  margin-bottom: 20px;
+}
+.card-category p {
+  letter-spacing: var(--letter-spacing);
+}
+.about-us {
+  clear: both;
+  position: relative;
+  height: 700px;
+  /* background-color: grey; */
+}
+.about-us-center {
+  width: 90vw;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.about-us-image-container {
+  float: left;
+  position: relative;
+  border: 10px solid var(--primary);
+  height: 300px;
+  width: 500px;
+  overflow: hidden;
+  margin-right: 40px;
+}
+.about-us-image {
+  position: absolute;
+  height: 300px;
+  width: 500px;
+  background: url("./images/pexels-julia-larson-6456207.jpg") center/cover
+    no-repeat fixed;
+
+  transition: var(--transition-about-us);
+}
+.about-us-image:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(235, 66, 66, 0.2) 0%,
+    rgba(235, 66, 66, 0.2) 100%
+  );
+  opacity: 0;
+  transition: opacity var(--transition-about-us);
+}
+.about-us-image-container:hover .about-us-image:after {
+  opacity: 1;
+  animation: fadeInOverlay var(--transition-about-us) ease-in-out;
+}
+.about-us-image-container:hover .about-us-image {
+  transform: scale(1.2);
+}
+
+.about-us-text {
+  display: inline-block;
+  vertical-align: top;
+  width: 500px;
+  margin-top: 20px;
+}
+
+.about-us-text > h3,
+.services > h3 {
+  font-size: 2rem;
+}
+.about-us-title {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+.about-us p {
+  letter-spacing: 1px;
+  color: var(--grey);
+  margin-bottom: 10px;
+}
+.about-us-btn,
+.products-btn {
+  font-size: 1.1rem;
+  background-color: var(--primary);
+  color: var(--white);
+  padding: 0.5rem 1rem;
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing);
+  font-weight: 700;
+  margin-top: 20px;
+  border: 1px solid var(--primary);
+}
+.about-us-btn:hover,
+.products-btn:hover,
+.service-btn:hover {
+  background-color: var(--primary-light);
+  border-color: var(--primary-light);
+  color: var(--primary-dark);
+  transition: var(--transition);
+}
+.products {
+  position: relative;
+  background-color: var(--grey-light);
+  height: 1000px;
+}
+.products-center {
+  width: 90vw;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.products-text {
+  /* float: left; */
+  display: inline-block;
+  vertical-align: top;
+  width: 400px;
+  margin-top: 20px;
+  margin-right: 20px;
+}
+.product-image {
+  /* visibility: collapse; */
+  height: 300px;
+  width: 300px;
+  object-fit: cover;
+}
+.products-title,
+.services-title {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+.products-center p {
+  letter-spacing: 1px;
+  color: var(--grey);
+  margin-bottom: 10px;
+}
+
+.product-card {
+  display: inline-block;
+  vertical-align: top;
+  width: 400px;
+  margin-top: 20px;
+  /* border: 1px solid black; */
+  margin-right: 20px;
+}
+.product-image {
+  /* visibility: collapse; */
+  height: 250px;
+  width: 300px;
+  /* object-fit: cover; */
+  margin-bottom: 20px;
+  border-radius: var(--border-radius);
+}
+.product-title,
+.service-title {
+  letter-spacing: var(--letter-spacing);
+  font-weight: 700;
+  font-size: 1.2rem;
+  text-transform: capitalize;
+  margin-bottom: 10px;
+}
+.product-price {
+  color: var(--primary);
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+.services > h3 {
+  margin-top: 40px;
+}
+.services > h3,
+.services-title {
+  text-align: center;
+}
+.service-card {
+  position: relative;
+  float: left;
+  width: 350px;
+  height: 600px;
+  margin: 1rem;
+  border-radius: 20px;
+  margin-bottom: 50px;
+}
+.service-logo {
+  width: 60px;
+  height: 60px;
+  background-color: var(--primary-light);
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  outline: 7px solid var(--grey-light);
+  z-index: 1;
+}
+.service-logo i {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.75rem;
+}
+.service-card-top {
+  height: 50%;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+.one {
+  background: url(./images/pexels-mikhail-nilov-6740822.jpg) center/cover
+    no-repeat;
+}
+.two {
+  background: url(./images/pexels-ella-olsson-1640771.jpg) center/cover
+    no-repeat;
+}
+.three {
+  background: url(./images/pexels-miriam-alonso-7592370.jpg) center/cover
+    no-repeat;
+}
+.service-card-bottom {
+  background-color: var(--grey-light);
+  position: relative;
+  /* border: 1px solid green; */
+  height: 50%;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+.service-card-bottom-text {
+  width: 80%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.service-title {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+.service-card p {
+  text-align: center;
+  color: var(--grey);
+  margin-bottom: 40px;
+  font-size: 1.1rem;
+}
+
+.service-btn {
+  display: block;
+  text-align: center;
+  background-color: var(--primary);
+  color: var(--white);
+  border: 1px solid var(--primary);
+  padding: 0.4rem 0.6rem;
+  border-radius: 8px;
+  text-transform: capitalize;
+  letter-spacing: var(--letter-spacing);
+  font-weight: 600;
+  margin: 0 auto;
+}
+.footer {
+  clear: both;
+  position: relative;
+  height: 20vh;
+  background-color: var(--black);
+  letter-spacing: var(--letter-spacing);
+  font-size: 1.3rem;
+}
+.footer-center {
+  width: 60vw;
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.footer-center i {
+  margin: 0 5px 0 5px;
+}
+.footer-center i:hover {
+  color: var(--primary-light);
+}
+.footer-center .links {
+  color: var(--white);
+  font-size: 1.75rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+.footer-center .copyright {
+  color: var(--white);
+  text-transform: capitalize;
+  text-align: center;
+}
+.footer-center span {
+  color: var(--primary);
+  text-transform: uppercase;
+  font-weight: 700;
 }
