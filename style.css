@@ -26,7 +26,6 @@
 }
 body {
   font-family: "Lato", sans-serif;
-  overflow: hidden;
 }
 
 .about-us-title,
@@ -152,7 +151,7 @@ nav .nav-center {
   transition: var(--transition);
 }
 .gradient-horizontal {
-  width: 100%;
+  width: 100vw;
   height: 0.5rem;
   background: linear-gradient(
     to left,
@@ -234,7 +233,7 @@ About Us
   height: 700px;
 }
 .about-us-center {
-  width: 90vw;
+  width: var(--fluid-width);
   position: absolute;
   top: 50%;
   left: 50%;
@@ -339,7 +338,7 @@ Products
   height: 1600px;
 }
 .products-center {
-  width: 90vw;
+  width: var(--fluid-width);
   position: absolute;
   top: 50%;
   left: 50%;
@@ -407,7 +406,7 @@ Services
 ===============
 */
 .services {
-  width: 90vw;
+  width: var(--fluid-width);
   margin: 0 auto;
   height: 2050px;
   clear: both;
