@@ -26,6 +26,7 @@
 }
 body {
   font-family: "Lato", sans-serif;
+  overflow: hidden;
 }
 
 .about-us-title,
@@ -84,7 +85,7 @@ Hero
   position: relative;
   height: 100vh;
   background: linear-gradient(var(--hero-overlay), var(--hero-overlay)),
-    url("./images/pexels-ivan-samkov-4164759.jpg") center/cover no-repeat fixed;
+    url("./images/fitness\ gym\ training.jpg") center/cover no-repeat fixed;
   background-position: 0 20%;
   background-attachment: fixed;
 }
@@ -97,11 +98,24 @@ nav .nav-center {
   top: 0;
   z-index: 1;
 }
-
-.fa-bars {
+.nav-menu {
+  position: fixed;
+  background-color: var(--grey-light);
+  height: 100%;
+  width: 300px;
+  z-index: 2;
+  transform: translateX(-100%);
+}
+.nav-btn {
+  position: fixed;
+  cursor: pointer;
   color: var(--primary);
   animation: nav-animation 3s infinite;
 }
+.show-nav-menu {
+  transform: translateX(0%);
+}
+
 .hero-center {
   width: 60vw;
   height: 30vh;
@@ -257,8 +271,7 @@ About Us
   position: absolute;
   height: 300px;
   width: 500px;
-  background: url("./images/pexels-julia-larson-6456207.jpg") center/cover
-    no-repeat fixed;
+  background: url("./images/personal\ trainer.jpg") center/cover no-repeat fixed;
 
   transition: var(--transition-about-us);
 }
@@ -446,16 +459,13 @@ Services
   border-top-right-radius: 20px;
 }
 .one {
-  background: url(./images/pexels-mikhail-nilov-6740822.jpg) center/cover
-    no-repeat;
+  background: url(./images/weight\ loss\ program.jpg) center/cover no-repeat;
 }
 .two {
-  background: url(./images/pexels-ella-olsson-1640771.jpg) center/cover
-    no-repeat;
+  background: url(./images/meals.jpg) center/cover no-repeat;
 }
 .three {
-  background: url(./images/pexels-miriam-alonso-7592370.jpg) center/cover
-    no-repeat;
+  background: url(./images/yoga\ session.jpg) center/cover no-repeat;
 }
 .service-card-bottom {
   background-color: var(--grey-light);
